@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //creates an array that lists game options
+        const computerChoices = ["r", "p", "s"];
+
+        //creating variables to hold wins, losses, ties
+        let wins = 0;
+        let losses = 0;
+        let lies = 0;
+
+        for (let i =0; i < 10; i++) {
+            // computers guess is based randomly from the computer choices array
+            let compGuess = computerChoices[Math.floor (Math.random() * computerChoices.length)];
+            // check for logging
+            console.log(compGuess);
+            //record the players choice and convert to lowercase
+            let playerChoice = prompt("Choose r, p, s!!")
+            playerChoice = playerChoice.toLowerCase();
+
+            console.log(playerChoice);
+        
+            //run game logic if valid option is within the answer
+            if (playerChoice === "r" || playerChoice === "p" || playerChoice === "s") {
+
+                alert("The Computer chose " + compGuess);
+                // rock beats scissors
+                if (playerChoice === "r" && compGuess ==="s") {
+                    wins++;
+                    alert("You won!! " + wins + " time(s)!");
+                }
+                //scissors beats rock- computer
+                else if (playerChoice === "s" && compGuess === "r") {
+                    losses++;
+                    alert("You lost, stop sucking!! " + losses + " times(s)!");
+                }
+                //player scissors wins
+                if (playerChoice === "s" && compGuess === "p") {
+                    wins++;
+                    alert("You won!! " + wins + " time(s)!")
+                }
+                //Player scossors loses
+                else if (playerChoice === "p" && compGuess === "s") {
+                    losses++;
+                    alert("You lost, stop sucking!! " + losses + " times(s)!");
+                }
+                //Player paper wins
+                if (playerChoice === "p" && compGuess === "r") {
+                    wins++;
+                    alert("You won!! " + wins + " time(s)!")
+                }
+                //Player paper loses
+                else if (playerChoice === "r" && compGuess === "p") {
+                    losses++;
+                    alert("You lost, stop sucking!! " + losses + " times(s)!");
+                }
+                //Tie
+                if (playerChoice === compGuess) {
+                    lies++;
+                    alert("You both tried and failed, Tied " + lies + " time(s)!");
+                }
+
+            }
+
+            console.log("wins-" + wins + "losses-" + losses + "ties-" + lies)
+        }
+
+// Win/lose conditions:
+//if ((userGuess === "r" && computerGuess === "s") ||
+//  (userGuess === "s" && computerGuess === "p") ||
+//  (userGuess === "p" && computerGuess === "r")) {
+//  wins++;
+//  alert("You've won " + wins + " time(s)!");
+//} else if (userGuess === computerGuess) {
+//  ties++;
+//  alert("You've tied " + ties + " time(s).");
+//} else {
+//  losses++;
+//  alert("You've lost " + losses + " time(s).");//    
+    </script>    
+</body>
+</html>
